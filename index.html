@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    height: auto;
+    width: 320px;
+    border-radius: 15px;
+    padding: 20px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: 600;
+}
+
+label {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 65, 108, 0.5);
+}
+
+#result {
+    margin-top: 17px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+<body><form action="">
+    <h2>Calculator</h2>
+    <label for="num1">Number 1:</label>
+    <input type="number" id="num1">
+    <label for="num2">Number 2:</label>
+    <input type="number" id="num2">
+    <label for="operator">Operator:</label>
+    <input type="text" id="operator">
+    <button type="button" onclick="calculate()">Solve</button>
+    <h2 id="result" style="margin-top: 17px; text-align: center;"></h2>
+</form>
+
+<script>
+    function calculate(){
+        const num1 = Number(document.getElementById("num1").value);
+        const num2 = Number(document.getElementById("num2").value);
+        const operator = document.getElementById("operator").value;
+        let result2 = 0;
+        if(operator === "+"){
+            result2 = num1 + num2;
+        }else if(operator === "-"){
+            result2 = num1 - num2;
+        }else if(operator === "*"){
+            result2 = num1 * num2;
+        }else if(operator === "/"){
+            result2 = num1 / num2;
+        }else{
+            result2 = "Invalid operator";
+        }
+
+        let resultElement = document.getElementById("result");
+        resultElement.innerHTML = result2;
+    }
+
+</script>
+</body>
+</html>
